@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Непрерывное воспроизведение аудио</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    #playButton {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    #playButton:hover {
+      background-color: #3e8e41;
+    }
+
+    #playButton:active {
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      transform: translateY(2px);
+    }
+
+    audio {
+      display: none; /* Скрываем аудиоплеер */
+    }
+  </style>
+</head>
+<body>
+
+  <button id="playButton">Play</button>
+
+  <audio id="myAudio" src="your_audio_file.mp3" loop preload="auto"></audio>
+
+  <script>
+    const playButton = document.getElementById('playButton');
+    const audio = document.getElementById('myAudio');
+    let isPlaying = false; // Флаг для отслеживания состояния
+
+    playButton.addEventListener('click', function() {
+      if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+        playButton.style.display = 'none'; // Скрываем кнопку
+      }
+    });
+  </script>
+
+</body>
+</html>
